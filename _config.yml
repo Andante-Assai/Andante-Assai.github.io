@@ -1,0 +1,16 @@
+title: "D.797's home"
+description: "Notes on physics, code, interfaces, and unfinished questions."
+url: "https://andante-assai.github.io"
+baseurl: ""
+timezone: "Asia/Shanghai"
+markdown: kramdown
+permalink: pretty
+strict_front_matter: true
+kramdown:
+  input: GFM
+  hard_wrap: false
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+

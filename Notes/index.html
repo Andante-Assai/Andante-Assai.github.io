@@ -1,0 +1,50 @@
+---
+title: Notes
+permalink: /Notes/
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ee">
+  <meta name="description" content="All notes from D.797.">
+  <title>Notes — D.797's home</title>
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+  <script src="{{ '/script.js' | relative_url }}" defer></script>
+</head>
+<body data-depth="root">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="D.797's home"><span class="brand-core">D.797</span><span class="brand-home">'s home</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/Notes/' | relative_url }}" aria-current="page">Notes</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+  </header>
+
+  <main id="content" class="page-shell">
+    <header class="page-intro">
+      <div class="breadcrumbs reveal"><a href="{{ '/' | relative_url }}">Home</a><span>›</span>Notes</div>
+      <h1 class="page-title reveal" style="--delay: 70ms">Notes</h1>
+    </header>
+
+    {% assign notes = site.pages | where: "layout", "note" | sort: "date" | reverse %}
+    <section class="blog-list" aria-label="All notes">
+      {% for note in notes %}
+      <article class="post-item">
+        <h2 class="post-title"><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h2>
+        <div class="date-line">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
+          <time datetime="{{ note.date | date_to_xmlschema }}">{{ note.date | date: "%d %b, %Y" }}</time>
+        </div>
+        <p class="post-excerpt">{{ note.excerpt }}</p>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>
+
