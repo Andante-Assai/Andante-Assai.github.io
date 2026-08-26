@@ -65,12 +65,10 @@ $$
 
 这就是微分方程：它不是直接给出函数长什么样，而是规定函数在随着自变量推进时，每一步应该怎样更新自己。
 
-$$
-\begin{aligned}
-只有函数值在随着自变量变化，函数关系恒定的代数方程：y &= \underbrace{3}_{\text{固定比例}}\;\underbrace{x}_{\text{输入量}} \\[8pt]
-函数关系和函数值都在随着自变量变化的微分方程：dg &= 3dx+\underbrace{(\ln 2)g(x)}_{\text{局部增长率}}\;\underbrace{dx}_{\text{输入的微小增量}}
-\end{aligned}
-$$
+<div class="math-comparison">
+  <div class="math-comparison-row"><span class="math-comparison-label">只有函数值在随着自变量变化，函数关系恒定的代数方程：</span><span class="math-comparison-formula">\(y = \underbrace{3}_{\text{固定比例}}\;\underbrace{x}_{\text{输入量}}\)</span></div>
+  <div class="math-comparison-row"><span class="math-comparison-label">函数关系和函数值都在随着自变量变化的微分方程：</span><span class="math-comparison-formula">\(dg = 3dx+\underbrace{(\ln 2)g(x)}_{\text{局部增长率}}\;\underbrace{dx}_{\text{输入的微小增量}}\)</span></div>
+</div>
 
 这种形式可以编码函数 $$f(x)$$ 本身变化的信息，也就是我们前面定义的规则，即在每一个无穷小区间内，输入值每增加一个单位，函数本身都会比原先扩大一倍。你看，自变量每增加一点点，函数值（相信你已经看出来了我说的函数值是指 $$g(x)$$）都会**同时受到函数 $$f(x)$$ 增加的影响，以及函数本身的增量。**敏锐的你肯定发现了，如果把
 
@@ -90,11 +88,7 @@ $$
 
 同样，如果我们用积分的视角去看待微分方程，只需要整理方程，将函数和微元配对（我们后面会讲这个方法——分离变量法）在每一个极小步里，左边和右边描述的是**同一小步变化**。每一步都有：
 
-$$
-\text{这一小步的 }y\text{ 变化}
-=
-\text{这一小步由规则预测出来的变化}
-$$
+<div class="math-equivalence"><span>这一小步的 \(y\) 变化</span><span class="math-equivalence-sign">=</span><span>这一小步由规则预测出来的变化</span></div>
 
 既然每一小步都相等，那么把所有小步加起来，总量当然也相等。倘若是**定积分**，例如从 $x=0$ 走到 $x=3$ 的定积分，意思就是从 $x=0$ 走到 $x=3$，两边累加了相同的值。那么**不定积分，也就是变上限的定积分+$$C$$**，积分整理后即可得到包含 $C$ 或者其他常数的$$g_C(x)$$。
 

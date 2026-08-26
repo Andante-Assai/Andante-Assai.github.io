@@ -134,28 +134,9 @@ input:focus-visible {
   font-family: var(--brand-serif);
   font-size: clamp(1.65rem, 2.2vw, 1.95rem);
   font-weight: 600 !important;
-  font-variation-settings: "opsz" 48;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.035em;
   white-space: nowrap;
   overflow: visible;
-}
-
-.brand-house {
-  width: 0.82em;
-  height: 0.82em;
-  margin-left: 0.18em;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transform: translateY(-2px);
-}
-
-.brand-home {
-  color: var(--ink);
-  font-style: normal;
-  font-weight: 600 !important;
 }
 
 .social-dock {
@@ -1102,6 +1083,53 @@ input:focus-visible {
   text-align: center;
 }
 
+.math-comparison {
+  margin: 1.35em auto;
+  display: grid;
+  gap: 1.45em;
+  font-family: "Microsoft YaHei", "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+}
+
+.math-comparison-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5em 1em;
+  flex-wrap: wrap;
+  font-weight: 400 !important;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.math-comparison-label {
+  font-weight: 400 !important;
+}
+
+.math-comparison-formula {
+  font-weight: 400 !important;
+  white-space: nowrap;
+}
+
+.math-equivalence {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.25em auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.4em 0.62em;
+  flex-wrap: wrap;
+  font-family: "Microsoft YaHei", "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 1rem;
+  font-weight: 700 !important;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.math-equivalence-sign {
+  font-weight: 700 !important;
+}
+
 .article-body h2 {
   margin: 2.285714em 0 0.75em;
   padding-bottom: 0;
@@ -1334,10 +1362,6 @@ body * {
 
 .brand-core {
   font-weight: 400 !important;
-}
-
-.brand-home {
-  font-weight: 600 !important;
 }
 
 .post-title,
