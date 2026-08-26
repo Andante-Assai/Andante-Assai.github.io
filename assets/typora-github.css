@@ -209,8 +209,11 @@
 .markdown-body .MJXc-display {
   margin: 1em 0 !important;
   padding: 0.2em 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: visible;
+}
+
+.markdown-body .MJXc-display > .MathJax_CHTML {
+  font-size: 100% !important;
 }
 
 .markdown-body .mjx-menclose > .mjx-box {

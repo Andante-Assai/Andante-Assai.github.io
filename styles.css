@@ -132,12 +132,15 @@ input:focus-visible {
   font-family: var(--brand-serif);
   font-size: clamp(1.65rem, 2.2vw, 1.95rem);
   font-weight: 600 !important;
-  letter-spacing: -0.035em;
+  font-variation-settings: "opsz" 48;
+  letter-spacing: -0.012em;
+  white-space: nowrap;
+  overflow: visible;
 }
 
 .brand-home {
   color: var(--ink);
-  font-style: normal;
+  font-style: italic;
   font-weight: 600 !important;
 }
 
@@ -884,7 +887,9 @@ body * {
 
 .post-title .cjk-strong,
 .article-title .cjk-strong {
-  font-weight: 800 !important;
+  font-family: "Microsoft YaHei", "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-weight: 700 !important;
+  letter-spacing: -0.035em;
 }
 
 .article-title {
