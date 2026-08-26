@@ -580,20 +580,8 @@ input:focus-visible {
 }
 
 .article-page {
-  max-width: 860px;
+  max-width: 914px;
   padding: clamp(64px, 8vw, 96px) 0 160px;
-}
-
-@media (min-width: 1400px) {
-  .article-page {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1800px) {
-  .article-page {
-    max-width: 1200px;
-  }
 }
 
 .article-header {

@@ -32,7 +32,8 @@
 
 .markdown-body {
   min-width: 200px;
-  max-width: 40em;
+  width: 100%;
+  max-width: 914px;
   margin: 0;
   padding: 0;
   color: #1f0909;
@@ -43,12 +44,6 @@
   line-height: 1.5;
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-}
-
-@media only screen and (min-width: 1400px) {
-  .markdown-body {
-    max-width: 914px;
-  }
 }
 
 .markdown-body h1,
