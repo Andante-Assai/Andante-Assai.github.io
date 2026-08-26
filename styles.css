@@ -542,10 +542,10 @@ input:focus-visible {
 }
 
 .about-layout {
-  max-width: 900px;
+  max-width: var(--reading);
   margin-right: auto;
   margin-left: auto;
-  padding: 24px 0 180px;
+  padding: 8px 0 180px;
 }
 
 .about-lead {
@@ -559,8 +559,8 @@ input:focus-visible {
 }
 
 .about-copy {
-  max-width: 630px;
-  margin: 68px 0 0 auto;
+  max-width: var(--reading);
+  margin: 0;
   color: var(--muted);
   font-size: 1.03rem;
 }
@@ -1066,7 +1066,7 @@ time,
   }
 
   .about-copy {
-    margin-top: 52px;
+    margin-top: 0;
     margin-left: 0;
   }
 
