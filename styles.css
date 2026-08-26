@@ -580,22 +580,31 @@ input:focus-visible {
 }
 
 .article-page {
-  max-width: 914px;
+  max-width: 1180px;
   padding: clamp(64px, 8vw, 96px) 0 160px;
 }
 
 .article-header {
-  margin-bottom: 28px;
+  width: min(914px, 100%);
+  margin: 0 auto 28px;
 }
 
 .article-title {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2.2rem, 3.5vw, 3.25rem);
+  font-size: clamp(2rem, 3.1vw, 2.85rem);
   font-weight: 450 !important;
   letter-spacing: 0;
   line-height: 1.2;
-  text-wrap: balance;
+}
+
+@media (min-width: 761px) {
+  .article-title {
+    width: max-content;
+    max-width: none;
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
 }
 
 .article-header .date-line {
@@ -605,7 +614,7 @@ input:focus-visible {
 
 .article-body {
   max-width: none;
-  margin-left: 0;
+  margin: 0 auto;
   font-family: var(--typora-sans);
   font-size: 16px;
   font-weight: 400 !important;
@@ -865,8 +874,7 @@ body * {
 }
 
 .post-title .cjk-strong,
-.article-title .cjk-strong,
-.markdown-body .cjk-strong {
+.article-title .cjk-strong {
   font-weight: 800 !important;
 }
 

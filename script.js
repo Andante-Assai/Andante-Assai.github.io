@@ -53,13 +53,7 @@ function emphasizeChinese(rootNode) {
   });
 }
 
-const markdownArticle = document.querySelector(".markdown-body");
-if (markdownArticle && window.MathJax?.Hub?.Queue) {
-  emphasizeChinese(document.querySelector(".article-title"));
-  window.MathJax.Hub.Queue(() => emphasizeChinese(markdownArticle));
-} else {
-  emphasizeChinese(document.body);
-}
+document.querySelectorAll(".article-title, .post-title").forEach(emphasizeChinese);
 
 const calendarIcon = `
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -140,7 +134,7 @@ function renderSearch(query = "") {
   searchResults.innerHTML = results.length
     ? results.map(postResultMarkup).join("")
     : '<p class="search-empty">Nothing found. Try another word.</p>';
-  emphasizeChinese(searchResults);
+  searchResults.querySelectorAll(".post-title").forEach(emphasizeChinese);
 }
 
 function openSearch() {
