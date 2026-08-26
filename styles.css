@@ -149,12 +149,61 @@ input:focus-visible {
   stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transform: translateY(-2px);
 }
 
 .brand-home {
   color: var(--ink);
-  font-style: italic;
+  font-style: normal;
   font-weight: 600 !important;
+}
+
+.social-dock {
+  position: fixed;
+  z-index: 45;
+  right: clamp(18px, 3vw, 42px);
+  bottom: clamp(18px, 3vw, 34px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: color 160ms ease, transform 180ms ease;
+}
+
+.social-link:hover {
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+}
+
+.social-link .social-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-link.is-disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.social-link.is-disabled:hover {
+  color: var(--muted);
+  transform: none;
 }
 
 .brand-core {
@@ -1011,6 +1060,21 @@ input:focus-visible {
 
 .article-body > :first-child {
   margin-top: 0;
+}
+
+.math-statement {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.1em auto;
+  padding: 0.34em 0.52em 0.38em;
+  border: 1px solid currentColor;
+  color: var(--ink);
+  font-family: "Microsoft YaHei", "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 1rem;
+  font-weight: 700 !important;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .article-body h2 {
