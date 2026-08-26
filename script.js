@@ -17,6 +17,50 @@ const root = document.documentElement;
 const savedTheme = localStorage.getItem("d797-theme") || "light";
 root.dataset.theme = savedTheme;
 
+const cjkSequence = /([\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+)/g;
+const cjkTest = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
+
+function emphasizeChinese(rootNode) {
+  if (!rootNode) return;
+
+  const walker = document.createTreeWalker(rootNode, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!cjkTest.test(node.nodeValue || "")) return NodeFilter.FILTER_REJECT;
+      const parent = node.parentElement;
+      if (!parent || parent.closest("script, style, noscript, textarea, code, pre, svg, math, strong, .cjk-strong, .MathJax, .MathJax_Display, [aria-hidden='true']")) {
+        return NodeFilter.FILTER_REJECT;
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  textNodes.forEach((node) => {
+    const fragment = document.createDocumentFragment();
+    node.nodeValue.split(cjkSequence).filter(Boolean).forEach((part) => {
+      if (cjkTest.test(part)) {
+        const strong = document.createElement("strong");
+        strong.className = "cjk-strong";
+        strong.textContent = part;
+        fragment.appendChild(strong);
+      } else {
+        fragment.appendChild(document.createTextNode(part));
+      }
+    });
+    node.replaceWith(fragment);
+  });
+}
+
+const markdownArticle = document.querySelector(".markdown-body");
+if (markdownArticle && window.MathJax?.Hub?.Queue) {
+  emphasizeChinese(document.querySelector(".article-title"));
+  window.MathJax.Hub.Queue(() => emphasizeChinese(markdownArticle));
+} else {
+  emphasizeChinese(document.body);
+}
+
 const calendarIcon = `
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>
@@ -96,6 +140,7 @@ function renderSearch(query = "") {
   searchResults.innerHTML = results.length
     ? results.map(postResultMarkup).join("")
     : '<p class="search-empty">Nothing found. Try another word.</p>';
+  emphasizeChinese(searchResults);
 }
 
 function openSearch() {

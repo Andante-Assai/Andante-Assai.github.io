@@ -597,7 +597,7 @@ input:focus-visible {
 }
 
 .article-header {
-  margin-bottom: 60px;
+  margin-bottom: 28px;
 }
 
 .article-title {
@@ -627,6 +627,10 @@ input:focus-visible {
 .article-body p {
   margin: 0.8em 0;
   font-weight: 400 !important;
+}
+
+.article-body > :first-child {
+  margin-top: 0;
 }
 
 .article-body h2 {
@@ -853,6 +857,10 @@ body * {
 .markdown-body .MathJax,
 .markdown-body .MathJax * {
   font-weight: 400 !important;
+}
+
+.cjk-strong {
+  font-weight: 800 !important;
 }
 
 .brand-core {
