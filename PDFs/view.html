@@ -1,0 +1,106 @@
+---
+title: PDF Preview
+permalink: /PDFs/view.html
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ee">
+  <meta name="description" content="Preview and download a PDF from the D.797 archive.">
+  <title>PDF Preview — D.797's home</title>
+  <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <script src="{{ '/script.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+</head>
+<body data-depth="root">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="D.797's home"><span class="brand-core">D.797</span><span class="brand-home">'s home</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/Notes/' | relative_url }}">Notes</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+  </header>
+
+  <main id="content" class="page-shell pdf-page">
+    <div class="breadcrumbs pdf-breadcrumbs"><a href="{{ '/' | relative_url }}">Home</a><span>›</span><a href="{{ '/Archieve/' | relative_url }}">Archive</a><span>›</span>PDF</div>
+
+    <section class="pdf-detail-header" aria-labelledby="pdf-title">
+      <div class="pdf-detail-copy">
+        <p class="pdf-type">PDF document</p>
+        <h1 id="pdf-title" class="pdf-detail-title">Document preview</h1>
+        <p id="pdf-source" class="pdf-source">D.797 Archive</p>
+      </div>
+      <div class="pdf-detail-actions">
+        <a id="pdf-open" class="pdf-preview-link" href="{{ '/Archieve/' | relative_url }}">Open PDF <span aria-hidden="true">↗</span></a>
+        <a id="pdf-download" class="pdf-download-button" href="{{ '/Archieve/' | relative_url }}" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></svg>
+          <span>Download</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="pdf-preview-shell" aria-label="PDF preview">
+      <div class="pdf-preview-toolbar">
+        <span>Preview</span>
+        <span id="pdf-file-label" class="pdf-file-label">PDF</span>
+      </div>
+      <iframe id="pdf-preview" class="pdf-preview-frame" title="PDF document preview" loading="eager"></iframe>
+      <p id="pdf-error" class="pdf-error" hidden>Select a PDF from the Archive to preview it here.</p>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const fileParam = params.get("file") || "";
+      const titleParam = params.get("title") || "";
+      const titleNode = document.querySelector("#pdf-title");
+      const sourceNode = document.querySelector("#pdf-source");
+      const labelNode = document.querySelector("#pdf-file-label");
+      const frame = document.querySelector("#pdf-preview");
+      const openLink = document.querySelector("#pdf-open");
+      const downloadLink = document.querySelector("#pdf-download");
+      const errorNode = document.querySelector("#pdf-error");
+
+      let pdfUrl;
+      try {
+        pdfUrl = new URL(fileParam, window.location.origin);
+      } catch (_) {
+        pdfUrl = null;
+      }
+
+      const isPdf = pdfUrl
+        && pdfUrl.origin === window.location.origin
+        && pdfUrl.pathname.startsWith("/PDFs/")
+        && /\.pdf$/i.test(pdfUrl.pathname);
+
+      if (!isPdf) {
+        frame.hidden = true;
+        errorNode.hidden = false;
+        openLink.hidden = true;
+        downloadLink.hidden = true;
+        return;
+      }
+
+      const fileName = decodeURIComponent(pdfUrl.pathname.split("/").pop());
+      const fallbackTitle = fileName.replace(/\.pdf$/i, "").replace(/[-_]+/g, " ");
+      const displayTitle = titleParam.trim() || fallbackTitle;
+      const cleanUrl = `${pdfUrl.origin}${pdfUrl.pathname}`;
+
+      titleNode.textContent = displayTitle;
+      sourceNode.textContent = "PDF document · D.797 Archive";
+      labelNode.textContent = fileName;
+      document.title = `${displayTitle} — D.797`;
+      frame.src = `${cleanUrl}#view=FitH&toolbar=1&navpanes=0`;
+      openLink.href = cleanUrl;
+      downloadLink.href = cleanUrl;
+      downloadLink.setAttribute("download", fileName);
+      downloadLink.setAttribute("aria-label", `Download ${displayTitle}`);
+    })();
+  </script>
+</body>
+</html>

@@ -31,6 +31,46 @@ permalink: /Archieve/
       <h1 class="page-title reveal" style="--delay: 70ms">Archive</h1>
     </header>
 
+    {% assign pdfs_lower = site.static_files | where_exp: "file", "file.path contains '/PDFs/'" | where: "extname", ".pdf" %}
+    {% assign pdfs_upper = site.static_files | where_exp: "file", "file.path contains '/PDFs/'" | where: "extname", ".PDF" %}
+    {% assign pdfs = pdfs_lower | concat: pdfs_upper | sort: "modified_time" | reverse %}
+    <section class="pdf-library" aria-labelledby="pdf-library-title">
+      <div class="pdf-library-heading">
+        <div>
+          <p class="pdf-library-kicker">PDF Library</p>
+          <h2 id="pdf-library-title" class="pdf-library-title">Documents<sup class="count">{{ pdfs | size }}</sup></h2>
+        </div>
+      </div>
+
+      {% if pdfs.size > 0 %}
+      <div class="pdf-list">
+        {% for pdf in pdfs %}
+        {% assign pdf_title = pdf.basename | replace: '-', ' ' | replace: '_', ' ' %}
+        {% assign pdf_date = pdf.modified_time | default: site.time %}
+        <article class="pdf-list-item">
+          <div class="pdf-list-copy">
+            <p class="pdf-type">PDF document</p>
+            <h3 class="pdf-list-title"><a href="{{ '/PDFs/view.html' | relative_url }}?file={{ pdf.path | url_encode }}&amp;title={{ pdf_title | url_encode }}">{{ pdf_title }}</a></h3>
+            <div class="date-line">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
+              <time datetime="{{ pdf_date | date_to_xmlschema }}">{{ pdf_date | date: "%d %b, %Y" }}</time>
+            </div>
+          </div>
+          <div class="pdf-list-actions">
+            <a class="pdf-preview-link" href="{{ '/PDFs/view.html' | relative_url }}?file={{ pdf.path | url_encode }}&amp;title={{ pdf_title | url_encode }}">Preview <span aria-hidden="true">↗</span></a>
+            <a class="pdf-download-button" href="{{ pdf.path | relative_url }}" download aria-label="Download {{ pdf_title }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></svg>
+              <span>Download</span>
+            </a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="pdf-empty">No PDFs yet. Add a <code>.pdf</code> file to the <code>PDFs</code> folder.</p>
+      {% endif %}
+    </section>
+
     {% assign notes = site.pages | where: "layout", "note" | sort: "date" | reverse %}
     {% assign years = notes | group_by_exp: "note", "note.date | date: '%Y'" %}
     <section class="archive" aria-label="Notes by date">
@@ -68,4 +108,3 @@ permalink: /Archieve/
   </main>
 </body>
 </html>
-
