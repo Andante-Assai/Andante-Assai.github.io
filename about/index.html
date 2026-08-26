@@ -1,3 +1,7 @@
+---
+title: About
+permalink: /about/
+---
 <!doctype html>
 <html lang="en" data-theme="light">
 <head>
@@ -7,8 +11,8 @@
   <meta name="description" content="About D.797 and this quiet corner of the web.">
   <title>About — D.797's home</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../script.js" defer></script>
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <script src="{{ '/script.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </head>
 <body data-depth="sub">
   <a class="skip-link" href="#content">Skip to content</a>
