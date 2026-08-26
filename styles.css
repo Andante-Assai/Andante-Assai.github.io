@@ -1008,7 +1008,7 @@ input:focus-visible {
 
 .article-page {
   max-width: 1200px;
-  padding: clamp(64px, 8vw, 96px) 0 160px;
+  padding: clamp(32px, 4vw, 52px) 0 150px;
 }
 
 .article-header {
@@ -1152,7 +1152,7 @@ input:focus-visible {
 .article-back-top {
   width: 38px;
   height: 38px;
-  margin: 0 0 clamp(32px, 4vw, 48px);
+  margin: 0 0 clamp(18px, 2vw, 28px);
   display: inline-grid;
   place-items: center;
   font-family: var(--sans);
