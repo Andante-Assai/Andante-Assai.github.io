@@ -132,9 +132,9 @@ document.body.insertAdjacentHTML("beforeend", `
     <a class="social-link" href="https://github.com/Andante-Assai" target="_blank" rel="me noopener" aria-label="GitHub" title="GitHub">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.64 5.47 7.71.4.08.55-.18.55-.39 0-.19-.01-.83-.01-1.51-2.01.38-2.53-.5-2.69-.96-.09-.23-.48-.96-.82-1.15-.28-.15-.68-.53-.01-.54.63-.01 1.08.59 1.23.83.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.2-3.64-.9-3.64-4.01 0-.89.31-1.62.82-2.19-.08-.2-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.93c.68 0 1.36.09 2 .27 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.96.08 2.16.51.57.82 1.3.82 2.19 0 3.12-1.87 3.81-3.65 4.01.29.25.54.74.54 1.5 0 1.08-.01 1.95-.01 2.22 0 .22.15.47.55.39A8.04 8.04 0 0 0 16 8.13C16 3.64 12.42 0 8 0Z"/></svg>
     </a>
-    <span class="social-link is-disabled" aria-label="Douyin" title="Douyin link pending">
+    <a class="social-link" href="https://www.douyin.com/user/MS4wLjABAAAAly7Kj3sRb_wVCS5255kpWPA3VZoT4_dW6--V9lVFmJaAMSewAD_TNtRX2-wvs4Qu?enter_from=author_card&amp;from_gid=7670147314320946289&amp;from_tab_name=main&amp;tab_name=post&amp;vid=7670147314320946289" target="_blank" rel="me noopener" aria-label="Douyin" title="Douyin">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5c.5 2.8 2.2 4.5 5 4.8v3.6a8.7 8.7 0 0 1-5-1.8v6.1a5.3 5.3 0 1 1-4.6-5.25v3.55a1.9 1.9 0 1 0 1.1 1.73V3.5h3.5Z"/></svg>
-    </span>
+    </a>
   </nav>`);
 
 document.body.insertAdjacentHTML("beforeend", `
