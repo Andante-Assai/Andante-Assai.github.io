@@ -1,6 +1,8 @@
 ---
 layout: note
 title: "常微分方程 Ordinary Differential Equations"
+title_zh: "常微分方程"
+title_en: "Ordinary Differential Equations"
 date: 2026-08-26 12:00:00 +0800
 excerpt: "From algebraic equations to the essence and geometric meaning of ordinary differential equations."
 keywords:

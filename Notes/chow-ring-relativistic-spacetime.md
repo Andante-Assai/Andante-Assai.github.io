@@ -1,6 +1,8 @@
 ---
 layout: note
-title: "代数几何中的Chow环成功涌现出相对论时空 Chow Ring in Algebraic Geometry Successfully Gives Rise to Relativistic Spacetime"
+title: "代数几何中的 Chow 环成功涌现出相对论时空 Chow Ring in Algebraic Geometry Successfully Gives Rise to Relativistic Spacetime"
+title_zh: "代数几何中的 Chow 环成功涌现出相对论时空"
+title_en: "Chow Ring in Algebraic Geometry Successfully Gives Rise to Relativistic Spacetime"
 date: 2026-08-26 21:26:20 +0800
 excerpt: "A local Lorentzian signature emerging from the intersection form of a Chow ring on a product of projective lines."
 keywords:

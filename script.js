@@ -5,6 +5,8 @@ const posts = [
 {% for note in notes %}
   {
     title: {{ note.title | jsonify }},
+    titleZh: {{ note.title_zh | default: "" | jsonify }},
+    titleEn: {{ note.title_en | default: "" | jsonify }},
     date: {{ note.date | date: "%d %b, %Y" | jsonify }},
     excerpt: {{ note.excerpt | jsonify }},
     url: {{ note.url | relative_url | jsonify }},
@@ -54,36 +56,6 @@ function emphasizeChinese(rootNode) {
 }
 
 document.querySelectorAll(".article-title, .post-title").forEach(emphasizeChinese);
-
-const articleTitle = document.querySelector(".article-title");
-let titleFitFrame = 0;
-
-function fitArticleTitle() {
-  titleFitFrame = 0;
-  if (!articleTitle) return;
-
-  articleTitle.style.removeProperty("font-size");
-  const naturalSize = Number.parseFloat(getComputedStyle(articleTitle).fontSize);
-  const titleLeft = articleTitle.getBoundingClientRect().left;
-  const rightGutter = Math.max(18, Math.min(titleLeft, 72));
-  const availableWidth = Math.max(1, document.documentElement.clientWidth - titleLeft - rightGutter);
-  const naturalWidth = articleTitle.scrollWidth;
-
-  if (naturalWidth > availableWidth) {
-    const fittedSize = Math.max(10, naturalSize * (availableWidth / naturalWidth) * 0.985);
-    articleTitle.style.fontSize = `${fittedSize}px`;
-  }
-}
-
-function requestTitleFit() {
-  if (!titleFitFrame) titleFitFrame = window.requestAnimationFrame(fitArticleTitle);
-}
-
-if (articleTitle) {
-  requestTitleFit();
-  document.fonts?.ready.then(requestTitleFit);
-  window.addEventListener("resize", requestTitleFit, { passive: true });
-}
 
 const calendarIcon = `
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -162,9 +134,12 @@ const searchResults = document.querySelector(".search-results");
 let lastFocusedElement = null;
 
 function postResultMarkup(post) {
+  const titleMarkup = post.titleEn
+    ? `<strong class="title-zh cjk-strong">${post.titleZh}</strong><span class="title-en">${post.titleEn}</span>`
+    : post.title;
   return `
     <article class="post-item">
-      <h2 class="post-title"><a href="${post.url}">${post.title}</a></h2>
+      <h2 class="post-title"><a href="${post.url}">${titleMarkup}</a></h2>
       <div class="date-line">${calendarIcon}<time>${post.date}</time></div>
       <p class="post-excerpt">${post.excerpt}</p>
     </article>`;
