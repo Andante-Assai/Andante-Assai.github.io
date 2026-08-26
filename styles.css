@@ -876,6 +876,12 @@ body * {
   font-weight: 550 !important;
 }
 
+.post-title .cjk-strong,
+.article-title .cjk-strong,
+.markdown-body .cjk-strong {
+  font-weight: 800 !important;
+}
+
 .article-title {
   font-weight: 450 !important;
 }
