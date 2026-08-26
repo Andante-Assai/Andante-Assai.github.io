@@ -690,6 +690,13 @@ input:focus-visible {
   white-space: pre;
 }
 
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  margin: 2.2em auto;
+  display: block;
+}
+
 .site-footer {
   width: var(--page);
   margin: 0 auto;
