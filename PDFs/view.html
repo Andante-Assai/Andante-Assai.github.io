@@ -26,17 +26,17 @@ permalink: /PDFs/view.html
   </header>
 
   <main id="content" class="page-shell pdf-page">
-    <div class="breadcrumbs pdf-breadcrumbs"><a href="{{ '/' | relative_url }}">Home</a><span>›</span><a href="{{ '/Archieve/' | relative_url }}">Archive</a><span>›</span>PDF</div>
+    <div class="breadcrumbs pdf-breadcrumbs"><a href="{{ '/' | relative_url }}">Home</a><span>›</span><a href="{{ '/Library/' | relative_url }}">Library</a><span>›</span>PDF</div>
 
     <section class="pdf-detail-header" aria-labelledby="pdf-title">
       <div class="pdf-detail-copy">
         <p class="pdf-type">PDF document</p>
         <h1 id="pdf-title" class="pdf-detail-title">Document preview</h1>
-        <p id="pdf-source" class="pdf-source">D.797 Archive</p>
+        <p id="pdf-source" class="pdf-source">D.797 Library</p>
       </div>
       <div class="pdf-detail-actions">
-        <a id="pdf-open" class="pdf-preview-link" href="{{ '/Archieve/' | relative_url }}">Open PDF <span aria-hidden="true">↗</span></a>
-        <a id="pdf-download" class="pdf-download-button" href="{{ '/Archieve/' | relative_url }}" download>
+        <a id="pdf-open" class="pdf-preview-link" href="{{ '/Library/' | relative_url }}">Open PDF <span aria-hidden="true">↗</span></a>
+        <a id="pdf-download" class="pdf-download-button" href="{{ '/Library/' | relative_url }}" download>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></svg>
           <span>Download</span>
         </a>
@@ -92,7 +92,7 @@ permalink: /PDFs/view.html
       const cleanUrl = `${pdfUrl.origin}${pdfUrl.pathname}`;
 
       titleNode.textContent = displayTitle;
-      sourceNode.textContent = "PDF document · D.797 Archive";
+      sourceNode.textContent = "PDF document · D.797 Library";
       labelNode.textContent = fileName;
       document.title = `${displayTitle} — D.797`;
       frame.src = `${cleanUrl}#view=FitH&toolbar=1&navpanes=0`;
