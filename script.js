@@ -55,6 +55,36 @@ function emphasizeChinese(rootNode) {
 
 document.querySelectorAll(".article-title, .post-title").forEach(emphasizeChinese);
 
+const articleTitle = document.querySelector(".article-title");
+let titleFitFrame = 0;
+
+function fitArticleTitle() {
+  titleFitFrame = 0;
+  if (!articleTitle) return;
+
+  articleTitle.style.removeProperty("font-size");
+  const naturalSize = Number.parseFloat(getComputedStyle(articleTitle).fontSize);
+  const titleLeft = articleTitle.getBoundingClientRect().left;
+  const rightGutter = Math.max(18, Math.min(titleLeft, 72));
+  const availableWidth = Math.max(1, document.documentElement.clientWidth - titleLeft - rightGutter);
+  const naturalWidth = articleTitle.scrollWidth;
+
+  if (naturalWidth > availableWidth) {
+    const fittedSize = Math.max(10, naturalSize * (availableWidth / naturalWidth) * 0.985);
+    articleTitle.style.fontSize = `${fittedSize}px`;
+  }
+}
+
+function requestTitleFit() {
+  if (!titleFitFrame) titleFitFrame = window.requestAnimationFrame(fitArticleTitle);
+}
+
+if (articleTitle) {
+  requestTitleFit();
+  document.fonts?.ready.then(requestTitleFit);
+  window.addEventListener("resize", requestTitleFit, { passive: true });
+}
+
 const calendarIcon = `
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>

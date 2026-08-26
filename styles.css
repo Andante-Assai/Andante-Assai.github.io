@@ -590,21 +590,16 @@ input:focus-visible {
 }
 
 .article-title {
+  width: max-content;
+  max-width: none;
   margin: 0;
   font-family: var(--display);
   font-size: clamp(2rem, 3.1vw, 2.85rem);
   font-weight: 450 !important;
   letter-spacing: 0;
   line-height: 1.2;
-}
-
-@media (min-width: 761px) {
-  .article-title {
-    width: max-content;
-    max-width: none;
-    white-space: nowrap;
-    text-wrap: nowrap;
-  }
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 .article-header .date-line {
