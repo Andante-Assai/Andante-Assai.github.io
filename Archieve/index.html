@@ -21,8 +21,8 @@ permalink: /Archieve/
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="{{ '/' | relative_url }}">Home</a>
       <a href="{{ '/Notes/' | relative_url }}">Notes</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
       <a href="{{ '/Library/' | relative_url }}">Library</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
     </nav>
   </header>
 
@@ -37,8 +37,7 @@ permalink: /Archieve/
     {% assign pdfs = pdfs_lower | concat: pdfs_upper | sort: "modified_time" | reverse %}
     <aside class="archive-library-sync" aria-label="PDF Library">
       <a href="{{ '/Library/' | relative_url }}">
-        <span class="archive-library-name">PDF Library</span>
-        <span class="archive-library-count">{{ pdfs | size }} document{% if pdfs.size != 1 %}s{% endif %} <span aria-hidden="true">↗</span></span>
+        <span class="archive-library-count">{{ pdfs | size }} document{% if pdfs.size != 1 %}s{% endif %}</span>
       </a>
     </aside>
 

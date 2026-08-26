@@ -124,7 +124,9 @@ document.querySelectorAll(".theme-toggle").forEach((button) => {
   button.addEventListener("click", toggleTheme);
 });
 
-document.body.insertAdjacentHTML("beforeend", `
+const isHomePage = document.querySelector('.site-nav a[aria-current="page"]')?.textContent.trim() === "Home";
+
+if (isHomePage) document.body.insertAdjacentHTML("beforeend", `
   <nav class="social-dock" aria-label="Social links">
     <a class="social-link" href="https://space.bilibili.com/1419895549" target="_blank" rel="me noopener" aria-label="Bilibili" title="Bilibili">
       <svg class="social-stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 3 4 4 4-4M5.5 7.5h13a2.5 2.5 0 0 1 2.5 2.5v8.5a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5V10a2.5 2.5 0 0 1 2.5-2.5ZM8 12.5v3M16 12.5v3"/></svg>

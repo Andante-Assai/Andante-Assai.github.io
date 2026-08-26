@@ -826,23 +826,16 @@ input:focus-visible {
 
 .archive-library-sync {
   max-width: 940px;
-  margin: 0 auto 72px;
+  margin: 0 auto 34px;
 }
 
 .archive-library-sync a {
-  min-height: 72px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
   font-family: var(--sans);
-}
-
-.archive-library-name {
-  font-size: 0.92rem;
-  font-weight: 780 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .archive-library-count {
@@ -851,7 +844,7 @@ input:focus-visible {
   font-weight: 650 !important;
 }
 
-.archive-library-sync a:hover .archive-library-name {
+.archive-library-sync a:hover .archive-library-count {
   color: #a00000;
 }
 
@@ -1506,11 +1499,11 @@ time,
   }
 
   .archive-library-sync {
-    margin-bottom: 58px;
+    margin-bottom: 28px;
   }
 
   .archive-library-sync a {
-    min-height: 66px;
+    min-height: 48px;
   }
 
   .library-documents {
