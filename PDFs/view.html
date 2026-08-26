@@ -17,7 +17,7 @@ permalink: /PDFs/view.html
 <body data-depth="root">
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="D.797's home"><span class="brand-core">D.797</span><span class="brand-home">'s home</span></a>
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="D.797's home"><span class="brand-core">D.797</span><span class="brand-home">'s</span><svg class="brand-house" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 3.5l8.5 7M5.5 9.7V21h13V9.7M9.5 21v-7h5v7"/></svg></a>
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="{{ '/' | relative_url }}">Home</a>
       <a href="{{ '/Notes/' | relative_url }}">Notes</a>
@@ -30,9 +30,7 @@ permalink: /PDFs/view.html
 
     <section class="pdf-detail-header" aria-labelledby="pdf-title">
       <div class="pdf-detail-copy">
-        <p class="pdf-type">PDF document</p>
         <h1 id="pdf-title" class="pdf-detail-title">Document preview</h1>
-        <p id="pdf-source" class="pdf-source">D.797 Library</p>
       </div>
       <div class="pdf-detail-actions">
         <a id="pdf-open" class="pdf-preview-link" href="{{ '/Library/' | relative_url }}">Open PDF <span aria-hidden="true">↗</span></a>
@@ -59,7 +57,6 @@ permalink: /PDFs/view.html
       const fileParam = params.get("file") || "";
       const titleParam = params.get("title") || "";
       const titleNode = document.querySelector("#pdf-title");
-      const sourceNode = document.querySelector("#pdf-source");
       const labelNode = document.querySelector("#pdf-file-label");
       const frame = document.querySelector("#pdf-preview");
       const openLink = document.querySelector("#pdf-open");
@@ -92,7 +89,6 @@ permalink: /PDFs/view.html
       const cleanUrl = `${pdfUrl.origin}${pdfUrl.pathname}`;
 
       titleNode.textContent = displayTitle;
-      sourceNode.textContent = "PDF document · D.797 Library";
       labelNode.textContent = fileName;
       document.title = `${displayTitle} — D.797`;
       frame.src = `${cleanUrl}#view=FitH&toolbar=1&navpanes=0`;
