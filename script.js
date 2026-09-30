@@ -16,8 +16,7 @@ const posts = [
 ];
 
 const root = document.documentElement;
-const savedTheme = localStorage.getItem("d797-theme") || "light";
-root.dataset.theme = savedTheme;
+window.d797Theme?.apply(window.d797Theme.read());
 
 const cjkSequence = /([\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+)/g;
 const cjkTest = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
@@ -73,10 +72,12 @@ function syncThemeLabels() {
 
 function toggleTheme() {
   const next = root.dataset.theme === "dark" ? "light" : "dark";
-  root.dataset.theme = next;
-  localStorage.setItem("d797-theme", next);
+  window.d797Theme.apply(next, true);
   syncThemeLabels();
 }
+
+window.addEventListener("pageshow", syncThemeLabels);
+window.addEventListener("storage", syncThemeLabels);
 
 document.querySelector(".site-header")?.insertAdjacentHTML("beforeend", `
   <div class="header-tools" aria-label="Quick actions">

@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#faf9f6">
+  {% include theme-head.html %}
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | escape }}">
   <title>{{ page.title | escape }} — D.797</title>
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
@@ -17,7 +18,7 @@
         processEscapes: true
       },
       svg: {
-        scale: 1.18,
+        scale: 1.12,
         fontCache: "local",
         mtextInheritFont: true,
         displayAlign: "center"

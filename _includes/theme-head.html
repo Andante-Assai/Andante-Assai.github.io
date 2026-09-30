@@ -1,0 +1,27 @@
+<script>
+  (() => {
+    const key = "d797-theme";
+    const colors = { light: "#faf9f6", dark: "#1b1b18" };
+    function readTheme() {
+      try { return localStorage.getItem(key) === "dark" ? "dark" : "light"; }
+      catch (_) { return "light"; }
+    }
+    function applyTheme(theme, persist = false) {
+      const selected = theme === "dark" ? "dark" : "light";
+      const root = document.documentElement;
+      root.dataset.theme = selected;
+      root.style.setProperty("--paper", colors[selected]);
+      root.style.colorScheme = selected;
+      document.querySelector('meta[name="theme-color"]')?.setAttribute("content", colors[selected]);
+      if (persist) {
+        try { localStorage.setItem(key, selected); } catch (_) {}
+      }
+    }
+    window.d797Theme = { read: readTheme, apply: applyTheme };
+    applyTheme(readTheme());
+    window.addEventListener("pageshow", () => applyTheme(readTheme()));
+    window.addEventListener("storage", event => {
+      if (event.key === key || event.key === null) applyTheme(readTheme());
+    });
+  })();
+</script>
