@@ -1,8 +1,8 @@
 ---
 layout: note
-title: "哈密顿力学与经典力学推导"
+title: "从动能到广义动量：经典力学中的对偶关系"
 date: 2026-09-12 23:33:39 +0800
-excerpt: "Notes on kinetic energy, generalized momentum, Legendre duality, and the derivation of Hamiltonian and classical mechanics."
+excerpt: "从动能的变分出发，推导广义动量，讨论坐标度量与 Legendre 对偶。"
 keywords:
   - Hamiltonian mechanics
   - classical mechanics
@@ -13,6 +13,8 @@ permalink: /Notes/hamiltonian-and-classical-mechanics/
 ---
 
 2026.9.10 动能求导等于动量的思考。
+
+## 1. 动能的变分与动量
 
 $$
 T(v)=\frac12m\langle v^b,v\rangle
@@ -54,7 +56,7 @@ $$
 =\delta T:=\langle p,\delta v\rangle
 $$
 
-补：
+### 1.1 用偏导数表示动量
 
 $$
 \delta T=\frac{\partial T}{\partial v_x}\delta v_x+\frac{\partial T}{\partial v_y}\delta v_y
@@ -73,7 +75,7 @@ $$
 v_y\to v_y+\delta v_y
 $$
 
-## 广义坐标：
+## 2. 从直角坐标到广义坐标
 
 $$
 \delta T=p_x\delta v_x+p_y\delta v_y
@@ -130,13 +132,13 @@ $$
 \qquad p_i\text{为广义动量}
 $$
 
-### ☆ 至此：广义速度：
+### 2.1 广义速度与坐标变换
 
 $$
 \dot x=\frac{\partial x}{\partial q_1}\dot q_1+\frac{\partial x}{\partial q_2}\dot q_2
 $$
 
-### 广义动量：
+### 2.2 广义动量与坐标度量
 
 $$
 m\dot x\frac{\partial x}{\partial q_1}+m\dot y\frac{\partial y}{\partial q_1}=p_1
@@ -198,14 +200,14 @@ $$
 \qquad \star\ \text{广义动量定义}
 $$
 
-## Ver. 4
+## 3. 加速度与动能微分的关系
 
 $$
 a^b dx=v^b dv=d\left(\frac12v^2\right)\qquad \boxed{A}
 $$
 
 
-## Legendre对偶：
+## 4. 速度与动量的 Legendre 对偶
 
 $$
 p=\frac{\partial T}{\partial v}
@@ -229,6 +231,8 @@ $$
 $$
 
 $\boxed{A}$
+
+## 5. 速度平方的求导
 
 $$
 v^2:=v^bv

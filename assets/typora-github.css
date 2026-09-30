@@ -206,19 +206,38 @@
   display: block;
 }
 
-.markdown-body .MJXc-display {
-  margin: 1em 0 !important;
-  padding: 0.2em 0;
+.markdown-body mjx-container,
+.markdown-body mjx-container * {
+  box-sizing: content-box;
+  font-weight: 400 !important;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.markdown-body mjx-container[display="true"] {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25em 0 !important;
+  padding: 0.55em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body mjx-container svg {
+  max-width: none;
   overflow: visible;
 }
 
-.markdown-body .MJXc-display > .MathJax_CHTML {
-  font-size: 100% !important;
+.markdown-body p,
+.markdown-body li {
+  line-height: 1.9;
 }
 
-.markdown-body .mjx-menclose > .mjx-box {
-  padding-top: 0.36em !important;
-  padding-bottom: 0.32em !important;
+.markdown-body .math-comparison-formula {
+  max-width: 100%;
+  padding: 0.4em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 [data-theme="dark"] .markdown-body {
