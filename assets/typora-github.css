@@ -223,9 +223,14 @@
   overflow-y: hidden;
 }
 
-.markdown-body mjx-container svg {
+.markdown-body mjx-container > svg {
   max-width: none;
   overflow: visible;
+}
+
+/* MathJax clips the extensible middle piece of tall delimiters in nested SVGs. */
+.markdown-body mjx-container svg svg {
+  overflow: hidden;
 }
 
 .markdown-body p,

@@ -1,6 +1,8 @@
 ---
 layout: note
-title: "矩阵乘法、张量、向量的共通本质"
+title: "矩阵乘法、张量、向量的共通本质 The Common Structure of Matrix Multiplication, Tensors, and Vectors"
+title_zh: "矩阵乘法、张量、向量的共通本质"
+title_en: "The Common Structure of Matrix Multiplication, Tensors, and Vectors"
 date: 2026-06-30 20:15:10 +0800
 excerpt: "矩阵乘法的本质是线性组合；矩阵乘法与张量积是同一个双线性结构的不同排布表现。"
 keywords:
