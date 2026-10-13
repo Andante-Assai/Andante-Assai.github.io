@@ -1,6 +1,8 @@
 ---
 layout: note
-title: "从动能到广义动量：经典力学中的对偶关系"
+title: "从动能到广义动量：经典力学中的对偶关系 From Kinetic Energy to Generalized Momentum: Duality in Classical Mechanics"
+title_zh: "从动能到广义动量：经典力学中的对偶关系"
+title_en: "From Kinetic Energy to Generalized Momentum: Duality in Classical Mechanics"
 date: 2026-09-12 23:33:39 +0800
 excerpt: "从动能的变分出发，推导广义动量，讨论坐标度量与 Legendre 对偶。"
 keywords:
