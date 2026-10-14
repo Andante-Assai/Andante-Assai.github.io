@@ -18,6 +18,18 @@ const posts = [
 const root = document.documentElement;
 window.d797Theme?.apply(window.d797Theme.read());
 
+const stickyHeader = document.querySelector(".site-header");
+let headerScrollFrame = 0;
+function syncHeaderScroll() {
+  headerScrollFrame = 0;
+  stickyHeader?.classList.toggle("is-scrolled", window.scrollY > 4);
+}
+window.addEventListener("scroll", () => {
+  if (!headerScrollFrame) headerScrollFrame = window.requestAnimationFrame(syncHeaderScroll);
+}, { passive: true });
+window.addEventListener("pageshow", syncHeaderScroll);
+syncHeaderScroll();
+
 const cjkSequence = /([\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+)/g;
 const cjkTest = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
 
