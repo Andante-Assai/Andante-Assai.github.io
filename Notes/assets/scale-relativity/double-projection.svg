@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 980" role="img" aria-labelledby="title desc">
+  <title id="title">双重投影：从视角缩小到运动学等效</title>
+  <desc id="desc">第一步，高维摄像机沿额外方向远离同一个参考平面，得到缩小的平面投影。第二步，把不同时刻的投影尺寸放在一起比较，将几何缩小作运动学等效。图仅表示作者在正文中的构造直觉。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m1 1 7 4-7 4" fill="none" stroke="#74736e" stroke-width="1.5"/></marker>
+    <marker id="accent-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="m1 1 7 4-7 4" fill="none" stroke="#ad5539" stroke-width="1.5"/></marker>
+    <g id="camera" fill="#faf9f6" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><rect x="-22" y="-13" width="35" height="26" rx="3"/><path d="m13-6 14-7v26L13 6Z"/></g>
+    <g id="plane" fill="none" stroke="currentColor" stroke-width="2"><rect width="240" height="100"/><path d="M60 0v100M120 0v100M180 0v100M0 25h240M0 50h240M0 75h240" stroke-width="0.8" opacity="0.5"/><circle cx="120" cy="50" r="15" stroke-width="2"/></g>
+  </defs>
+  <rect width="1040" height="980" fill="#faf9f6"/>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#262723">
+    <text x="52" y="47" font-size="17" letter-spacing="2" fill="#77776e">直觉示意 02</text>
+    <text x="52" y="96" font-size="32" font-weight="700">双重投影：从视角缩小到运动学等效</text>
+    <text x="52" y="132" font-size="18" fill="#77776e">按文中的构造思路绘制</text>
+
+    <circle cx="65" cy="192" r="17" fill="#262723"/><text x="65" y="199" font-size="19" text-anchor="middle" fill="#fff">1</text>
+    <text x="97" y="200" font-size="25" font-weight="700">摄像机远离 → 同一平面在视野中缩小</text>
+    <path d="M108 450 365 450 468 392 211 392Z" fill="#eceee6" stroke="#737a69" stroke-width="1.8"/>
+    <path d="m172 450 103-58m-39 58 103-58m-39 58 103-58M142 431h257M176 412h257" stroke="#a5ac98" stroke-width="1"/>
+    <text x="123" y="490" font-size="20" fill="#666d5c">同一个参考平面</text>
+    <path d="M287 389V244" fill="none" stroke="#737a69" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M287 292 108 450M287 292 468 392M287 245 108 450M287 245 468 392" stroke="#b5baa9" stroke-width="1.2" stroke-dasharray="5 6"/>
+    <use href="#camera" color="#666d5c" transform="translate(287 330)"/>
+    <use href="#camera" color="#ad5539" transform="translate(287 258)"/>
+    <text x="329" y="267" font-size="19" fill="#ad5539">更远的观测位置</text>
+    <text x="329" y="339" font-size="19" fill="#666d5c">较近的观测位置</text>
+    <text x="601" y="260" font-size="20">较近时的投影</text>
+    <use href="#plane" color="#737a69" transform="translate(603 282)"/>
+    <path d="M900 310V407" stroke="#ad5539" stroke-width="1.8" fill="none" marker-end="url(#accent-arrow)"/>
+    <text x="601" y="427" font-size="20">更远时的投影</text>
+    <use href="#plane" color="#ad5539" transform="translate(660 448) scale(.53)"/>
+
+    <circle cx="65" cy="575" r="17" fill="#262723"/><text x="65" y="582" font-size="19" text-anchor="middle" fill="#fff">2</text>
+    <text x="97" y="583" font-size="25" font-weight="700">按时间比较投影 → 将尺寸变化作运动学等效</text>
+    <use href="#plane" color="#737a69" transform="translate(92 645) scale(.85)"/>
+    <use href="#plane" color="#8a8068" transform="translate(442 659) scale(.60)"/>
+    <use href="#plane" color="#ad5539" transform="translate(770 670) scale(.38)"/>
+    <path d="M332 687h63M638 687h82" stroke="#939585" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+    <path d="M92 782H936" stroke="#939585" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <path d="M194 775v14M514 775v14M816 775v14" stroke="#939585" stroke-width="1.5"/>
+    <text x="194" y="821" font-size="23" text-anchor="middle">t₀</text><text x="514" y="821" font-size="23" text-anchor="middle">t₁</text><text x="816" y="821" font-size="23" text-anchor="middle">t₂</text>
+    <text x="936" y="821" font-size="19" text-anchor="end" fill="#77776e">时间顺序</text>
+    <text x="194" y="877" font-size="20" text-anchor="middle">几何尺寸的变化</text><text x="355" y="877" font-size="23" fill="#939585">→</text>
+    <text x="514" y="877" font-size="20" text-anchor="middle">随时间比较</text><text x="674" y="877" font-size="23" fill="#939585">→</text>
+    <text x="816" y="877" font-size="20" text-anchor="middle">运动学等效</text>
+    <text x="52" y="942" font-size="17" fill="#77776e">此图表达的是构造直觉；严格构造见文首论文链接。</text>
+  </g>
+</svg>

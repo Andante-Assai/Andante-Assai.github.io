@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" role="img" aria-labelledby="title desc">
+  <title id="title">同一段运动与不同的播放时钟</title>
+  <desc id="desc">上方示意减速赛车在等时取样时，位置间隔逐渐缩短；下方示意不断调快播放速度后，重新取样的位置间隔可以增大。这是文中视频类比的直觉图，不是观测数据。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="m1 1 7 4-7 4" fill="none" stroke="#74736e" stroke-width="1.5"/></marker>
+    <g id="car" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M-18 2v-10h7l6-7h15l6 7h6V2H15M-11 2h17M-11-8h27"/><circle cx="-15" cy="2" r="4" fill="#faf9f6"/><circle cx="11" cy="2" r="4" fill="#faf9f6"/></g>
+  </defs>
+  <rect width="1040" height="520" fill="#faf9f6"/>
+  <g font-family="Microsoft YaHei, PingFang SC, sans-serif" fill="#262723">
+    <text x="52" y="47" font-size="17" letter-spacing="2" fill="#77776e">直觉示意 01</text>
+    <text x="52" y="95" font-size="32" font-weight="700">同一段运动，换一种播放时钟</text>
+    <text x="52" y="146" font-size="22">原视频：等时取样，位置间隔逐渐缩短</text>
+    <path d="M90 224H934" stroke="#aaa99f" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <g color="#373a35">
+      <use href="#car" transform="translate(140 220)"/><use href="#car" transform="translate(380 220)"/><use href="#car" transform="translate(540 220)"/><use href="#car" transform="translate(640 220)"/><use href="#car" transform="translate(700 220)"/>
+    </g>
+    <path d="M164 184H354M404 184H514M564 184H614" stroke="#95978b" stroke-width="1.5" stroke-dasharray="3 5" fill="none" marker-end="url(#arrow)"/>
+    <text x="798" y="208" font-size="20" fill="#6a6d61">原本在减速</text>
+    <text x="52" y="304" font-size="22">逐步调快倍速：重新取样后，位置间隔可以增大</text>
+    <path d="M90 382H934" stroke="#aaa99f" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <g color="#ad5539">
+      <use href="#car" transform="translate(140 378)"/><use href="#car" transform="translate(200 378)"/><use href="#car" transform="translate(300 378)"/><use href="#car" transform="translate(460 378)"/><use href="#car" transform="translate(700 378)"/>
+    </g>
+    <path d="M224 342H274M324 342H434M484 342H674" stroke="#ad5539" stroke-width="1.5" stroke-dasharray="3 5" fill="none" marker-end="url(#arrow)"/>
+    <text x="798" y="366" font-size="20" fill="#ad5539">看起来不同</text>
+    <text x="52" y="458" font-size="22">运动记录保持不变；改变的是播放时钟与取样。</text>
+    <text x="52" y="494" font-size="16" fill="#77776e">示意图，不代表观测数据。</text>
+  </g>
+</svg>
